@@ -11,7 +11,7 @@
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
                    </button>
-                   <a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="" /></a>
+                   <a href="index.html" class="navbar-brand"><img src="{{asset('master/images/logo.png')}}" alt="" /></a>
                 </div>
                 <form class="navbar-form navbar-left web-sh">
                    <div class="form">
@@ -32,8 +32,8 @@
                    <div class="help-r hidden-xs">
                       <div class="help-box">
                          <ul>
-                            <li> <a data-toggle="modal" data-target="#myModal" href="#"> <span>Change</span> <img src="images/flag.png" alt="" /> </a> </li>
-                            <li> <a href="#"><img class="h-i" src="images/help-icon.png" alt="" /> Help </a> </li>
+                            <li> <a data-toggle="modal" data-target="#myModal" href="#"> <span>Change</span> <img src="{{asset('master/images/flag.png')}}" alt="" /> </a> </li>
+                            <li> <a href="#"><img class="h-i" src="{{asset('master/images/help-icon.png')}}" alt="" /> Help </a> </li>
                          </ul>
                       </div>
                    </div>
@@ -63,8 +63,8 @@
           </div>
           <div class="modal-body">
              <ul>
-                <li><a href="#"><img src="images/flag-up-1.png" alt="" /> United States</a></li>
-                <li><a href="#"><img src="images/flag-up-2.png" alt="" /> France </a></li>
+                <li><a href="#"><img src="{{asset('master/images/flag-up-1.png')}}" alt="" /> United States</a></li>
+                <li><a href="#"><img src="{{asset('master/images/flag-up-2.png')}}" alt="" /> France </a></li>
              </ul>
           </div>
        </div>
