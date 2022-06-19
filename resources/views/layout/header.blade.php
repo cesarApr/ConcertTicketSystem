@@ -11,13 +11,13 @@
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
                    </button>
-                   <a href="index.html" class="navbar-brand"><img src="{{asset('master/images/logo.png')}}" alt="" /></a>
+                   <a href="/" class="navbar-brand"><img src="{{asset('master/images/logo.png')}}" alt="logo" /></a>
                 </div>
-                <form class="navbar-form navbar-left web-sh">
+                {{-- <form class="navbar-form navbar-left web-sh">
                    <div class="form">
                       <input type="text" class="form-control" placeholder="Search for products or companies">
                    </div>
-                </form>
+                </form> --}}
              </div>
              <div class="col-md-8 col-sm-12">
                 <div class="right-nav">
@@ -29,19 +29,21 @@
                          </ul>
                       </div>
                    </div>
-                   <div class="help-r hidden-xs">
+                   {{-- <div class="help-r hidden-xs">
                       <div class="help-box">
                          <ul>
                             <li> <a data-toggle="modal" data-target="#myModal" href="#"> <span>Change</span> <img src="{{asset('master/images/flag.png')}}" alt="" /> </a> </li>
                             <li> <a href="#"><img class="h-i" src="{{asset('master/images/help-icon.png')}}" alt="" /> Help </a> </li>
                          </ul>
                       </div>
-                   </div>
+                   </div> --}}
                    <div class="nav-b hidden-xs">
                       <div class="nav-box">
                          <ul>
-                            <li><a href="howitworks.html">How it works</a></li>
-                            <li><a href="about-us.html">Chamb for Business</a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/ticket">Ticket</a></li>
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="/contact">Contact</a></li>
                          </ul>
                       </div>
                    </div>
@@ -53,7 +55,7 @@
     </nav>
  </header>
  <!-- Modal -->
- <div class="modal fade lug" id="myModal" role="dialog">
+ {{-- <div class="modal fade lug" id="myModal" role="dialog">
     <div class="modal-dialog">
        <!-- Modal content-->
        <div class="modal-content">
@@ -69,11 +71,11 @@
           </div>
        </div>
     </div>
- </div>
- <div id="sidebar" class="top-nav">
+ </div> --}}
+ {{-- <div id="sidebar" class="top-nav">
     <ul id="sidebar-nav" class="sidebar-nav">
        <li><a href="#">Help</a></li>
        <li><a href="howitworks.html">How it works</a></li>
        <li><a href="#">chamb for Business</a></li>
     </ul>
- </div>
+ </div> --}}
