@@ -37,3 +37,9 @@ Route::get('/contact', function() {
         "title" => "contact"
     ]);
 });
+
+Route::get('/ticket/hololive', function() {
+    return view('pages.product.hololive',[
+        "title" => "hololive"
+    ]);
+});

@@ -13,7 +13,7 @@
                 </div>
                 <div class="row clearfix">
                     <div class="col-lg-3 col-sm-6 col-md-3">
-                        <a href="productpage.html">
+                        <a href="ticket/hololive">
                             <div class="box-img">
                                 <h4>Hololive</h4>
                                 <img src="{{asset('master/images/product/1.png')}}" alt="hololive" />

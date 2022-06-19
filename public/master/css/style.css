@@ -2615,6 +2615,8 @@ html .ui-button.ui-state-disabled:active {
 .pro-img {
 	background: #fff;
 	padding: 8px;
+    height: 150px;
+    width: 150px;
 	border-radius: 2px;
 	-webkit-box-shadow: 0 6px 10px -5px rgba(0, 0, 0, 0.1);
 	box-shadow: 0 6px 10px -5px rgba(0, 0, 0, 0.1);
@@ -2926,6 +2928,7 @@ html .ui-button.ui-state-disabled:active {
 .preview-thumbnail.nav-tabs li img {
 	max-width: 100%;
 	display: block;
+    
 }
 
 .preview-thumbnail.nav-tabs li a {
@@ -2945,8 +2948,9 @@ html .ui-button.ui-state-disabled:active {
 
 .preview-pic.tab-content {
 	border: 3px solid #ddd;
-	width: 99%;
 	margin: 0.5%;
+    width: 1920;
+    height: auto;
 }
 
 .tab-content img {
@@ -2959,6 +2963,8 @@ html .ui-button.ui-state-disabled:active {
 
 .preview-thumbnail.nav-tabs li.active a {
 	border: 3px solid #01b888;
+    width: 1920;
+    height: auto;
 }
 
 .btn-dit-list {
