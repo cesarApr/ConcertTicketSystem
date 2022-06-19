@@ -1,19 +1,7 @@
-@extends('layout.master')
+@extends('layout.ticketlayout')
 
 
 @section('content')
-    <div class="terms-conditions product-page">
-        <div class="terms-title">
-            <div class="container">
-                <div class="row">
-                    <ol class="breadcrumb">
-                        <li><a href="/ticket">Ticket </a></li>
-                        <li class="active"><a href="/ticket/hololive">Hololive</a></li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="product-page-main">
         <div class="container">
             <div class="row">
