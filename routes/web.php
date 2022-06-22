@@ -51,6 +51,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 });
 
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'profile'])->name('profile');
+Route::post('/upload', [App\Http\Controllers\ProfileController::class, 'upload'])->name('upload');
 
 Auth::routes();
 

@@ -47,7 +47,7 @@
                         @else
                             <li class="nav-item">
                                 <a class="nav-item" href="{{ route('profile') }}" role="button">
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->username }}
                                 </a>
 
                               </li>
