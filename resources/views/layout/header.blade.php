@@ -23,10 +23,35 @@
                 <div class="right-nav">
                    <div class="login-sr">
                       <div class="login-signup">
-                         <ul>
-                            <li><a href="#">Login</a></li>
-                            <li><a class="custom-b" href="#">Sign up</a></li>
-                         </ul>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Left Side Of Navbar -->
+                        <ul class="navbar-nav me-auto">
+
+                        </ul>
+
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ms-auto">
+                              <!-- Authentication Links -->
+                              @guest
+                                 @if (Route::has('login'))
+                                    <li class="nav-item">
+                                          <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    </li>
+                                 @endif
+
+                                 @if (Route::has('register'))
+                                    <li class="nav-item">
+                                          <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </li>
+                                 @endif
+                              @else
+                                 <li class="nav-item">
+                                    <a href="#">{{ Auth::user()->name }}</a>
+                                 </li>
+                                 <li><a class="custom-b" href="{{ route('logout')}}">Logout</a></li>
+                              @endguest
+                        </ul>
+                     </div>
                       </div>
                    </div>
                    {{-- <div class="help-r hidden-xs">
