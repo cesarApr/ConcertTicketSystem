@@ -24,7 +24,7 @@
                                         channels. with TiCon you can easly search
                                         various concerts available.
                                     </p>
-                                    <a href="#">Create a buyer account</a>
+                                    <a class="nav-link" href="{{ route('register') }}">Create a buyer account</a>
                                 </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                                         music.
                                     </p>
                                     .
-                                    <a href="#">Create a supplier account</a>
+                                    <a class="nav-link" href="{{ route('register') }}">Create a supplier account</a>
                                 </div>
                             </div>
                             <div class="col-md-7 col-sm-6">

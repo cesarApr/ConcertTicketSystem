@@ -33,23 +33,37 @@
                         <ul class="navbar-nav ms-auto">
                               <!-- Authentication Links -->
                               @guest
-                                 @if (Route::has('login'))
-                                    <li class="nav-item">
-                                          <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                    </li>
-                                 @endif
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
 
-                                 @if (Route::has('register'))
-                                    <li class="nav-item">
-                                          <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    </li>
-                                 @endif
-                              @else
-                                 <li class="nav-item">
-                                    <a href="#">{{ Auth::user()->name }}</a>
-                                 </li>
-                                 <li><a class="custom-b" href="{{ route('logout')}}">Logout</a></li>
-                              @endguest
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-item" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                              </li>
+                              <li class="nav-item">
+                                 <div class="nav-item">
+                                     <a class="nav-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                         {{ __('Logout') }}
+                                     </a>
+   
+                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                         @csrf
+                                     </form>
+                                 </div>
+                            </li>
+                        @endguest
                         </ul>
                      </div>
                       </div>

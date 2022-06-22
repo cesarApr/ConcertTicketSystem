@@ -45,11 +45,3 @@ Route::get('/ticket/hololive', function() {
 });
 
 Auth::routes();
-
-Route::group(['middleware' => ['auth']], function()
-{
-    /**
-    * Logout Route
-    */
-    Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
-});

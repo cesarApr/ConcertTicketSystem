@@ -19,7 +19,7 @@
                             <img src="{{ asset('master/images/holo-logo.png') }}" alt="#" />
                         </div>
                         <br>
-                        <a href="#">Visit company</a>
+                        <a href="https://en.hololive.tv/">Visit company</a>
                     </div>
                 </div>
                 <div class="col-md-7 col-sm-8">
