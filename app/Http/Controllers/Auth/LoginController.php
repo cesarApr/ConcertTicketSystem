@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -22,13 +23,6 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-    /**
      * Create a new controller instance.
      *
      * @return void
@@ -36,5 +30,22 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function username()
+    {
+        return 'username';
+    }
+
+    protected function authenticated()
+    {
+        if(Auth::user()->role_as == '1') //1 = Admin Login
+        {
+            return redirect('dashboard')->with('status','Welcome to your dashboard');
+        }
+        elseif(Auth::user()->role_as == '0') // Normal or Default User Login
+        {
+            return redirect('/')->with('status','Logged in successfully');
+        }
     }
 }

@@ -44,4 +44,14 @@ Route::get('/ticket/hololive', function() {
     ]);
 });
 
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('pages.dashboard');
+     });
+});
+
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'profile'])->name('profile');
+
 Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

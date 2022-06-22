@@ -46,7 +46,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-item" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a class="nav-item" href="{{ route('profile') }}" role="button">
                                     {{ Auth::user()->name }}
                                 </a>
 
