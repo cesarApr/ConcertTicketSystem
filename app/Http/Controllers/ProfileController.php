@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use Auth;
 
 class ProfileController extends Controller
@@ -11,8 +12,18 @@ class ProfileController extends Controller
     	return view('pages.profile', array('user' => Auth::user()) );
     }
 
-    public function upload(Request $request)
+    public function store(Request $request)
     {
-        return $request->file('image')->store('post-images');
+        $validateData = $request->validate([
+            'image' => 'image|file|max:3072',
+        ]);
+
+        if ($request->file('image')) {
+            $validateData['image'] = $request->file('image')->store('Profile');
+        }
+
+        User::where('id', auth()->user()->id)->update($validateData);
+
+        return redirect('/profile')->with('Success', 'Picture Succesfully Added');
     }
 }

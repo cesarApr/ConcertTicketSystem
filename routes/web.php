@@ -51,7 +51,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 });
 
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'profile'])->name('profile');
-Route::post('/upload', [App\Http\Controllers\ProfileController::class, 'upload'])->name('upload');
+Route::post('/store/{id}', [App\Http\Controllers\ProfileController::class, 'store'])->name('store');
 
 Auth::routes();
 
