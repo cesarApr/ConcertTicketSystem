@@ -399,7 +399,11 @@ header .navbar-default .navbar-header {
 	4. PAGE CONTENT PRODUCT
 -------------------------------------------------------------*/
 
-
+.table-center {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+  }
 .main-product {
 	background-color: #09284b;
 	background-image: url('../images/bg_main.jpg');
@@ -2450,6 +2454,11 @@ html .ui-button.ui-state-disabled:active {
 }
 
 /*-- Profile --*/
+.username {
+    color: #0077e0;
+}
+
+/*-- Profile --*/
 
 .profile-b {
 	position: relative;
@@ -2928,7 +2937,7 @@ html .ui-button.ui-state-disabled:active {
 .preview-thumbnail.nav-tabs li img {
 	max-width: 100%;
 	display: block;
-    
+
 }
 
 .preview-thumbnail.nav-tabs li a {
