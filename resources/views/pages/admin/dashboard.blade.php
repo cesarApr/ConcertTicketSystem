@@ -14,25 +14,38 @@
                     <div class="table-center">
                         <table border="1">
                             <tr>
-                                <th>Id</th>
+                                <th>No</th>
                                 <th>Title</th>
-                                <th>Schadule</th>
+                                <th>Schedule</th>
                                 <th>Location</th>
+                                <th>Image</th>
                             </tr>
                             @foreach ($concert as $concert)
                                 <tr>
-                                    <td>{{ $concert->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $concert->title }}</td>
-                                    <td>{{ $concert->schadule }}</td>
+                                    <td>{{ $concert->schedule }}</td>
                                     <td>{{ $concert->location }}</td>
+                                    <td><img src="{{ asset('storage/'.$concert->image) }}" alt=""></td>
                                     <td>
-                                        <a href="/dashboard/edit/{{ $concert->id }}">Edit</a>
+                                        <a href="/dashboard/{{ $concert->id}}/edit">Edit</a>
                                         |
-                                        <a href="/dashboard/destroy/{{ $concert->id }}">Delete</a>
+                                        <td><form action="/dashboard/{{ $concert->id }}" method="POST" class="d-inline">
+                                            @method('delete')
+                                            @csrf
+                                            <button class="btn btn-danger">Delete</button>
+                                        </form></td>
                                     </td>
                                 </tr>
                             @endforeach
                         </table>
+                        <div class="row">
+                            <div style="margin:0px 0px 0px 70px;">
+                                <a class="btn btn-success" href="{{ route('print_pdf') }}">
+                                    Print PDF
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>

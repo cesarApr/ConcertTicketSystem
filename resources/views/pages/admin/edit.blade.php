@@ -1,37 +1,34 @@
-@extends(layout.master)
+@extends('layout.master')
 
 @section('content')
-<div class="card uper">
-    <div class="card-header">
-      Edit Concert Data
-    </div>
-    <div class="card-body">
-      @if ($errors->any())
-        <div class="alert alert-danger">
-          <ul>
-              @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-              @endforeach
-          </ul>
-        </div><br />
-      @endif
-        <form method="post" action="{{ route('dashboard.update', $concert->id ) }}">
+    <form enctype="multipart/form-data" action="/dashboard/{{ $concert->id }}" method="POST">
+        {{ csrf_field() }}
+        @method('PUT')
+        <div class="col-md-9">
             <div class="form-group">
-                @csrf
-                @method('PATCH')
                 <label for="title">Title</label>
-                <input type="text" class="form-control" name="title" value="{{ $concert->title }}"/>
+                <input type="text" class="form-control" name="title" placeholder="title" value="{{ $concert->title }}">
             </div>
             <div class="form-group">
-                <label for="schadule">Schadule</label>
-                <input type="date" class="form-control" name="schadule" value="{{ $concert->schadule }}"/>
+                <label for="schedule">Schedule</label>
+                <input type="date" class="form-control" name="schedule" placeholder="" value="{{ $concert->schedule }}">
             </div>
             <div class="form-group">
-                <label for="location">Schadule</label>
-                <input type="text" class="form-control" name="location" value="{{ $concert->location }}"/>
+                <label for="l">Location</label>
+                <input type="text" class="form-control" name="location" placeholder="location" value="{{ $concert->location }}">
             </div>
-            <button type="submit" class="btn btn-primary">Update Data</button>
-        </form>
-    </div>
-  </div>
+            <div class="form-group">
+                <label for="l">Image</label>
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image">
+                    @error('image')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            </div>
+            <button class="btn btn-primary" type="submit">Save Data</button>
+            <a class="btn btn-primary" href="/dashboard" role="button">Back</a>
+        </div>
+    </form>
 @endsection

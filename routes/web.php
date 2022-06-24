@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,9 +60,10 @@ Route::post('/store/{id}', [App\Http\Controllers\ProfileController::class, 'stor
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+/*Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 Route::post('/dashboard/create', [App\Http\Controllers\DashboardController::class, 'store'])->name('store');
 Route::delete('/dashboard/destroy/{$id}', [App\Http\Controllers\DashboardController::class, 'destroy'])->name('destroy');
-Route::get('/dashboard/edit/{$id}', [App\Http\Controllers\DashboardController::class, 'edit'])->name('edit');
+Route::get('/dashboard/edit/{$id}', [App\Http\Controllers\DashboardController::class, 'edit'])->name('edit');*/
+Route::get('/dashboard/print_pdf', [App\Http\Controllers\DashboardController::class, 'print_pdf'])->name('print_pdf');
 
-
+Route::resource('/dashboard', DashboardController::class);

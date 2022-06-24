@@ -6,6 +6,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Dashboard;
+use App\Models\Concert;
+use Illuminate\Support\Facades\Storage;
+use PDF;
 
 
 class DashboardController extends Controller
@@ -68,21 +71,20 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        DB::table('concert')->insert([
-            'title' => $request->title,
-            'schadule' => $request->schadule,
-            'location' => $request->location,
-
-        ]);
-
-        $validatedData = $request->validate([
+        $validateData = $request->validate([
             'title' => 'required|max:255',
-            'schadule' => 'required',
+            'schedule' => 'required',
             'location' => 'required',
+            'image' => 'image|file|max:3072',
         ]);
-        $show = Dashboard::create($validatedData);
 
-        return redirect('/dashboard')->with('success', 'Game is successfully saved');;
+        if ($request->file('image')) {
+            $validateData['image'] = $request->file('image')->store('Dashboard');
+        }
+
+        Concert::create($validateData);
+
+        return redirect('/dashboard')->with('success', 'Concert is successfully saved');
     }
 
     /**
@@ -104,9 +106,9 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        $concert = Dashboard::findOrFail($id);
+        $concert = Concert::findOrFail($id);
 
-        return view('edit', compact('concert'));
+        return view('pages.admin.edit', compact('concert'));
     }
 
     /**
@@ -116,16 +118,52 @@ class DashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Concert $concert, $id)
     {
-        $validatedData = $request->validate([
+        /*Concert::find($concert->id);
+        $validateData = $request->validate([
             'title' => 'required|max:255',
             'schadule' => 'required',
-            'location' => 'required'
+            'location' => 'required',
+            'image' => 'image|file|max:3072',
         ]);
-        Dashboard::whereId($id)->update($validatedData);
 
-        return redirect('/dashboard')->with('success', 'Game is successfully saved');;
+        if ($request->hasFile('image')) {
+            if ($concert->image && file_exists(storage_path('app/public/'. $concert->image))) {
+                Storage::delete(['public/', $concert->image]);
+            }
+            $validateData['image'] = $request->file('image')->store('Dashboard');
+        }
+        dd($validateData);
+        
+        Concert::update($validateData);
+        
+        return redirect('/dashboard')->with('success', 'Edit Success');*/
+        $rules = [
+            'title' => 'required|max:255',
+            'schedule' => 'required',
+            'location' => 'required',
+            'image' =>'image|file|max:3072',
+        ];
+
+        $validateData = $request->validate($rules);
+
+        if ($request->file('image')) {
+            if ($concert->image && file_exists(storage_path('app/public/'. $concert->image))) {
+                Storage::delete(['public/', $concert->image]);
+            }
+            $validateData['image'] = $request->file('image')->store('Dashboard');
+        }
+
+        Concert::where('id', $id)->update($validateData);
+
+        return redirect('/dashboard')->with('success', 'Succesfully Updated');
+    }
+
+    public function print_pdf(Concert $concert){
+        $dashboard = DB::table('concert')->get();
+        $pdf = PDF::loadview('pages.admin.dashboard_pdf', ['dashboard'=>$dashboard]);
+        return $pdf->stream();
     }
 
     /**
@@ -136,8 +174,8 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
-        $game = Dashboard::findOrFail($id);
-        $game->delete();
+        $destroy = Concert::findOrFail($id);
+        $destroy->delete($id);
 
         return redirect('/dashboard')->with('success', 'Concert Data is successfully deleted');
     }
