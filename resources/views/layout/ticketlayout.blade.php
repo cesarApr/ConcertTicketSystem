@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Concert Ticket System | {{ $title }} </title>
+    <title>Concert Ticket System</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--enable mobile device-->
     <meta name="viewport" content="width=device-width, initial-scale=1">

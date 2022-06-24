@@ -107,11 +107,60 @@
                         <label for="numberperson" class="form-label"></label>
                         <p>Number Persons</p>
                         <input type="number" class="form-control" id="input" placeholder="1">
-                        <a href="#">Contact company</a>
+                        <!-- Button trigger modal -->
+                        <br>
+                        <div>
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#exampleModalCenter">
+                                Payment
+                            </button>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2 class="modal-title" id="exampleModalLongTitle">Payment</h2>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h4>Username : <span></span>{{ Auth::user()->username }}</h4>
+                                        <h4>Email    : <span></span>{{ Auth::user()->email }}</h4>
+                                        <h4>Title    : iRyS - World Tour</h4>
+                                        <h4>Schedule : 29.09.2022</h4>
+                                        <h4>Location : Gelora Bung Karno</h4>
+                                        <h4>Seat     : VVIP</h4>
+                                        <h4>Numbers  : 1</h4>
+                                        <h4>Total    : Rp. 999.000</h4>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button id="btnSubmit" type="button" class="btn btn-primary">pay</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <h5><strong>Total</strong> Rp. 999.999</h5>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $("button").click(function(){
+            $('#btnSubmit').click(function(){
+                alert("Payment Success!!!");
+            });
+          });
+        });
+      });
+    </script>
+
 @endsection
