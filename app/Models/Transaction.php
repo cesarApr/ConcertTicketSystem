@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dashboard extends Model
+class Transaction extends Model
 {
     use HasFactory;
 
@@ -15,11 +15,12 @@ class Dashboard extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'user_id',
+        'concert_id',
         'title',
-        'schedule',
+        'schadule',
         'location',
         'qty',
-        'image',
 
     ];
 }

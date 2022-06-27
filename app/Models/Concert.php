@@ -14,6 +14,7 @@ class Concert extends Model
         'title',
         'schedule',
         'location',
+        'qty',
         'image',
     ];
 }

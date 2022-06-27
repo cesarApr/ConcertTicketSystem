@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,3 +68,4 @@ Route::get('/dashboard/edit/{$id}', [App\Http\Controllers\DashboardController::c
 Route::get('/dashboard/print_pdf', [App\Http\Controllers\DashboardController::class, 'print_pdf'])->name('print_pdf');
 
 Route::resource('/dashboard', DashboardController::class);
+Route::resource('/transaction', TransactionController::class);

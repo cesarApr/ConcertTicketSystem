@@ -18,6 +18,10 @@
                 <input type="text" class="form-control" name="location" placeholder="location" value="{{ $concert->location }}">
             </div>
             <div class="form-group">
+                <label for="qty">Qty</label>
+                <input type="number" class="form-control" name="qty" placeholder="" value="{{ $concert->qty }}">
+            </div>
+            <div class="form-group">
                 <label for="l">Image</label>
                 <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image">
                     @error('image')

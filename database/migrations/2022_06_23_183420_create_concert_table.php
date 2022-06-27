@@ -18,6 +18,7 @@ class CreateConcertTable extends Migration
             $table->string('title')->unique();
             $table->date('schedule');
             $table->string('location');
+            $table->integer('qty');
             $table->string('image')->nullable();
             $table->timestamps();
         });

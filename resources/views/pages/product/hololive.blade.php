@@ -96,7 +96,7 @@
                     <div class="price-box-right">
                         <h4>Price</h4>
                         <h3>Rp. 999.999 <span>/person</span></h3>
-                        <p>Option</p>
+                        {{-- <p>Seat Class</p>
                         <select class="form-control select2">
                             <option value="sc" disabled selected>Seat class</option>
                             <option value="vvip+">VVIP+</option>
@@ -108,16 +108,14 @@
                         <p>Number Persons</p>
                         <input type="number" class="form-control" id="input" placeholder="1">
                         <!-- Button trigger modal -->
-                        <br>
+                        <br> --}}
                         <div>
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                Payment
-                            </button>
+                            {{-- <a class="btn btn-primary" href="transaction/create" role="button">Link</a> --}}
+                            <a href="/transaction/create"> Pay</a>
                         </div>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                        {{-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -133,7 +131,7 @@
                                         <h4>Title    : iRyS - World Tour</h4>
                                         <h4>Schedule : 29.09.2022</h4>
                                         <h4>Location : Gelora Bung Karno</h4>
-                                        <h4>Seat     : VVIP</h4>
+                                        <h4>Seat     : VVIP+</h4>
                                         <h4>Numbers  : 1</h4>
                                         <h4>Total    : Rp. 999.000</h4>
                                     </div>
@@ -144,23 +142,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <h5><strong>Total</strong> Rp. 999.999</h5>
+                        </div> --}}
+                        {{-- <h5><strong>Total</strong> Rp. 999.999</h5> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-        $("button").click(function(){
-            $('#btnSubmit').click(function(){
-                alert("Payment Success!!!");
-            });
-          });
-        });
-      });
-    </script>
+    
 
 @endsection

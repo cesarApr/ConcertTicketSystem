@@ -75,6 +75,7 @@ class DashboardController extends Controller
             'title' => 'required|max:255',
             'schedule' => 'required',
             'location' => 'required',
+            'qty' => 'required',
             'image' => 'image|file|max:3072',
         ]);
 
@@ -135,14 +136,15 @@ class DashboardController extends Controller
             $validateData['image'] = $request->file('image')->store('Dashboard');
         }
         dd($validateData);
-        
+
         Concert::update($validateData);
-        
+
         return redirect('/dashboard')->with('success', 'Edit Success');*/
         $rules = [
             'title' => 'required|max:255',
             'schedule' => 'required',
             'location' => 'required',
+            'qty' => 'required',
             'image' =>'image|file|max:3072',
         ];
 

@@ -6,7 +6,7 @@
             <main class="col-md-9">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Welcome back, <span class="username">{{ Auth::user()->username }}</span></h1>
+                    {{-- <h1 class="h2">Welcome back, <span class="username">{{ Auth::user()->username }}</span></h1> --}}
                 </div>
                 <a href="/dashboard/create"> + Add New Concert</a>
                 <br>
@@ -18,6 +18,7 @@
                                 <th>Title</th>
                                 <th>Schedule</th>
                                 <th>Location</th>
+                                <th>Qty</th>
                                 <th>Image</th>
                             </tr>
                             @foreach ($concert as $concert)
@@ -26,6 +27,7 @@
                                     <td>{{ $concert->title }}</td>
                                     <td>{{ $concert->schedule }}</td>
                                     <td>{{ $concert->location }}</td>
+                                    <td>{{ $concert->qty}}</td>
                                     <td><img src="{{ asset('storage/'.$concert->image) }}" alt=""></td>
                                     <td>
                                         <a href="/dashboard/{{ $concert->id}}/edit">Edit</a>
